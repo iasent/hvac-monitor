@@ -1,0 +1,4 @@
+setuptools>=52.*
+wheel>=0.*
+Adafruit_DHT>=1.*
+Flask>=2.*

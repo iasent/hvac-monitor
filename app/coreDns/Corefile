@@ -1,0 +1,11 @@
+sans:53 {
+	file /home/pi/app/coreDns/sans.db
+	log
+	errors
+}
+
+.:53 {
+	forward	.	192.168.1.1
+	log
+	errors
+}

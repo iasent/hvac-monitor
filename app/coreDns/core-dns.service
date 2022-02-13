@@ -1,0 +1,12 @@
+[Unit]
+Description=CoreDns
+After=network-online.target
+
+[Service]
+Type=simple
+User=pi
+ExecStart=/home/pi/app/coreDns/start.sh
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

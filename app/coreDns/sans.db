@@ -1,0 +1,4 @@
+sans.			    IN	SOA	raspberry1.sans.	sans.email.com.	2022022101	1d	2h	4w	1h
+main.sans.		    IN	A	192.168.0.200
+raspberry1.sans.	IN	A	192.168.0.201
+raspberry2.sans.	IN	A	192.168.0.202
