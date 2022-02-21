@@ -37,19 +37,18 @@ def hvac_monitor():
     co2 = s8.get()
     pms = pms7003.get()
 
-    result = f"""humidity {ht["humidity"]:.2f}
-                temperature {ht["temperature"]:.2f}
-                co2 {co2["co2"]}
-
-                particulate_matter{{pm="1.0"}} {pms["pm1.0"]}
-                particulate_matter{{pm="2.5"}} {pms["pm2.5"]}
-                particulate_matter{{pm="10.0"}} {pms["pm10.0"]}
-                in_0.1L_of_air{{size="0.3"}} {pms["0.3um_in_0.1L_of_air"]}
-                in_0.1L_of_air{{size="0.5"}} {pms["0.5um_in_0.1L_of_air"]}
-                in_0.1L_of_air{{size="1.0"}} {pms["1.0um_in_0.1L_of_air"]}
-                in_0.1L_of_air{{size="2.5"}} {pms["2.5um_in_0.1L_of_air"]}
-                in_0.1L_of_air{{size="5.0"}} {pms["5.0um_in_0.1L_of_air"]}
-                in_0.1L_of_air{{size="10.0"}} {pms["10.0um_in_0.1L_of_air"]}
+    result = f"""humidity {ht["humidity"]:.2f}\n
+                temperature {ht["temperature"]:.2f}\n
+                co2 {co2["co2"]}\n
+                particulate_matter{{pm="1.0"}} {pms["pm1.0"]}\n
+                particulate_matter{{pm="2.5"}} {pms["pm2.5"]}\n
+                particulate_matter{{pm="10.0"}} {pms["pm10.0"]}\n
+                in_0.1L_of_air{{size="0.3"}} {pms["0.3um_in_0.1L_of_air"]}\n
+                in_0.1L_of_air{{size="0.5"}} {pms["0.5um_in_0.1L_of_air"]}\n
+                in_0.1L_of_air{{size="1.0"}} {pms["1.0um_in_0.1L_of_air"]}\n
+                in_0.1L_of_air{{size="2.5"}} {pms["2.5um_in_0.1L_of_air"]}\n
+                in_0.1L_of_air{{size="5.0"}} {pms["5.0um_in_0.1L_of_air"]}\n
+                in_0.1L_of_air{{size="10.0"}} {pms["10.0um_in_0.1L_of_air"]}\n
             """.replace("    ", "")
 
     return make_response(
