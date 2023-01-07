@@ -8,8 +8,8 @@ from werkzeug.datastructures import Headers
 app = Flask(__name__)
 
 dht22 = DHT22(4)
-pms7003 = PMS7003('/dev/ttySOFT0')
-s8 = SenseAirS8('/dev/serial0')
+pms7003 = PMS7003('/hvac/dev/ttySOFT0')
+s8 = SenseAirS8('/hvac/dev/serial0')
 
 header = Headers()
 header.add('Content-Type', 'text/plain')
