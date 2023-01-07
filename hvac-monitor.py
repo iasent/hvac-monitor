@@ -8,8 +8,8 @@ from werkzeug.datastructures import Headers
 app = Flask(__name__)
 
 dht22 = DHT22(4)
-pms7003 = PMS7003('/hvac/dev/ttySOFT0')
-s8 = SenseAirS8('/hvac/dev/serial0')
+pms7003 = PMS7003('/dev/ttySOFT0')
+s8 = SenseAirS8('/dev/serial0')
 
 header = Headers()
 header.add('Content-Type', 'text/plain')
@@ -36,11 +36,32 @@ def sense_air_s8():
         200
     )
 
+ht = {"humidity":0, "temperature":0}
+co2 = {"co2":0}
+pms = {"pm1.0":0, "pm2.5":0, "pm10.0":0, "0.3um_in_0.1L_of_air":0, "0.5um_in_0.1L_of_air":0, "1.0um_in_0.1L_of_air":0, "2.5um_in_0.1L_of_air":0, "5.0um_in_0.1L_of_air":0, "10.0um_in_0.1L_of_air":0}
+
 @app.route('/hvac', methods = ["GET"])
 def hvac_monitor():
-    ht = dht22.get()
-    co2 = s8.get()
-    pms = pms7003.get()
+    global dht22, pms7003, s8, header, ht, co2, pms
+    try:
+        nht = dht22.get()
+        if type(nht) is not dict:
+            raise
+        ht = nht
+    except:
+        pass
+
+    try:
+        nco2 = s8.get()
+        co2 = nco2
+    except:
+        pass
+
+    try:
+        npms = pms7003.get()
+        pms = npms
+    except:
+        pass
 
     result = f"""humidity {ht["humidity"]:.1f}
                 temperature {ht["temperature"]:.1f}

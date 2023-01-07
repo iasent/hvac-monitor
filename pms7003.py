@@ -27,7 +27,7 @@ class PMS7003(object):
     CHECKSUM               = 17 # Checksum code
 
 
-    def __init__(self, port, baudrate=4800, timeout=1):
+    def __init__(self, port, baudrate=9600, timeout=2):
         self.ser = serial.Serial(port, baudrate, timeout=timeout)
         self.read_timeout = timeout
 
