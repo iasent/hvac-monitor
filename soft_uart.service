@@ -1,0 +1,9 @@
+[Unit]
+Description=soft uart service
+
+[Service]
+Type=simple
+ExecStart=/bin/bash /home/pi/Documents/Github/hvac-monitor/soft_uart.sh
+
+[Install]
+WantedBy=multi-user.target

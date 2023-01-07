@@ -87,7 +87,8 @@ def hvac_monitor():
 def health():
     return make_response(
         "alive",
-        200
+        200,
+        header
     )   
 
 if __name__ == '__main__':
