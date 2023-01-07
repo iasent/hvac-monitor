@@ -3,4 +3,4 @@
 	url = https://github.com/adafruit/Adafruit_Python_DHT
 [submodule "soft_uart"]
 	path = soft_uart
-	url = https://github.com/adrianomarto/soft_uart
+	url = https://github.com/sfera-labs/soft_uart
